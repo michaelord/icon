@@ -1,0 +1,29 @@
+.icon {
+	max-width: 100%;
+	height: auto;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+
+	&:hover {
+		.debug & {
+			color: red;
+		}
+	}
+
+	&--inherit {
+		fill: currentColor;
+	}
+
+	&--sm,
+	&--md,
+	&--lg {
+		width: 20px;
+		height: 20px;
+	}
+
+	&--full {
+		width: 100%;
+		height: auto;
+	}
+}

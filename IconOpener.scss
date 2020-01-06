@@ -1,0 +1,53 @@
+:root {
+	--accordion-icon-size: 1rem;
+	--accordion-icon-stroke-width: 2px;
+}
+
+.icon--toggle {
+	$parent: &;
+	i {
+		position: relative;
+		//width: var(--accordion-icon-size);
+		//height: var(--accordion-icon-size);
+
+		width: 100%;
+		height: 100%;
+
+		display: block;
+		will-change: transform;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			width: var(--accordion-icon-stroke-width);
+			height: 80%;
+			background: currentColor;
+			top: 0;
+			transform-origin: 50% 100%;
+			will-change: transform;
+			transition: transform 0.2s;
+		}
+
+		&:before {
+			left: 50%;
+			transform: rotate(-45deg);
+		}
+
+		&:after {
+			left: calc(50% - var(--accordion-icon-stroke-width) / 2);
+			transform: rotate(45deg);
+		}
+
+		&.open,
+		.active & {
+			&:before {
+				transform: translateY(-80%) rotate(-135deg);
+			}
+
+			&:after {
+				transform: translateY(-80%) rotate(135deg);
+			}
+		}
+	}
+}
